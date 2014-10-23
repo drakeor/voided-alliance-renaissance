@@ -1,0 +1,53 @@
+/* CSS Document Shoutbox v1.0 Styles */
+
+.first {
+color: #FFFFFF;
+font-size: xx-small;
+font-weight: bold;
+}
+.second {
+color: #FF3300;
+font-size: xx-small;
+font-weight: bold;
+}
+.form {
+background-color:#333333;
+color: #FFFFFF;
+border:thin;
+border-color:#FFFFFF;
+border-width:thin;
+height: 15px;
+}
+.submit {
+width: 50px;
+height: 20px;
+background: #333 url(images/shout_button.jpg) no-repeat;
+outline: none;
+border: none;
+}
+.text {
+color: #FFFFFF;
+font-size: xx-small;
+font-weight: bold;
+background-color: #333333;
+border-bottom-color: #FFFFFF;
+border: thin;
+}
+body,td,th {
+	font-size: x-small;
+	color: #FFFFFF;
+}
+body {
+	background-color: #333333;
+}
+.style1 {font-size: xx-small}
+.style3 {font-size: xx-small; font-weight: bold; }
+a:visited {
+	color: #FFFFFF;
+}
+a:hover {
+	color: #FF0000;
+}
+a:active {
+	color: #FFFFFF;
+}
