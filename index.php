@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 This file and all others are protected by
 a GPL.  Please read the licence before
@@ -50,7 +50,7 @@ if (!empty($_COOKIE['va_users'])) {
 ?>
 <html>
 <head>
-<?
+<?php
 
 $pagename = $_GET['page'];
 $pagenum  = 0;
@@ -97,7 +97,7 @@ switch ($pagename) {
 writeCSS();
 ?>
 <title>
-<?
+<?php
 wti($pagenum);
 ?>
 </title>
@@ -108,7 +108,7 @@ function emoticon(newtext) {
 }
 </script>
 
-<?
+<?php
 if (empty($_COOKIE['va_users']) == false) {
     $lateRef = date('ymdH');
     $lateRef .= (date('i') + 15);
@@ -120,7 +120,7 @@ if (empty($_COOKIE['va_users']) == false) {
 
 </head>
 <body>
-<?
+<?php
 writetop();
 writeleft();
 
@@ -223,13 +223,11 @@ switch ($pagename) {
 <td width="10%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Rank</font></small></td>
 <td width="50%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">User</font></small></td>
 <td width="20%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">
-<?
-        echo $measureT;
+<?php       echo $measureT;
 ?>
 </font></small></td>
 <td width="20%" bgcolor="#a16410"><p align="left"><small><font face="Verdana">Join Date</font></small></td>
-<?
-        $query = "SELECT * FROM va_users ORDER BY " . $measure . " DESC";
+<?php       $query = "SELECT * FROM va_users ORDER BY " . $measure . " DESC";
         $result = mysql_query($query) or die(mysql_error());
         $number = mysql_numrows($result) or die(mysql_error());
         
@@ -299,8 +297,7 @@ switch ($pagename) {
         }
 ?>
 </table>
-<?
-        echo "<hr>";
+<?php       echo "<hr>";
         break;
     case 'nr':
         echo "The game is not relesed yet, once it is, we will activate the menu.<br>Until then try this: <a href='http://forum.auburnflame.com/'>Click Here to teleport to the forum.</a>";
@@ -364,21 +361,21 @@ switch ($pagename) {
                     
 ?>
 <form action="index.php?page=cp&cpage=editNews2" method="post">
-<input type="hidden" name="newsID" value=<?
+<input type="hidden" name="newsID" value=<?php
                     print("\"" . $newsID . "\"");
 ?> >
 Subject: <input type="text" name="subject"
-<?
+<?php
                     echo "value=\"" . $subject . "\" /><br /><br />";
 ?>
 Text<hr> <textarea cols="45" rows="15" name="text">
-<?
+<?php
                     echo $text;
 ?>
 </textarea><hr><br />
 <button type="submit">Edit News</button>
 </form>
-<?
+<?php
                 } else {
                     echo "<br />You cannot delete news--You lack sufficient rank.";
                 }
@@ -401,7 +398,7 @@ User: <input type="text" name="user" /><br />
 Minutes to Ban: <input type="text" name="length" /><br />(Moderators can ban up to 10 minutes, Global Moderators can ban up to an hour, and Admins can perma-ban.)<br />
 <button type="submit">Add Ban</button>
 </form>
-<?
+<?php
                 break;
             case 'editdescription':
 ?>
@@ -409,7 +406,7 @@ Minutes to Ban: <input type="text" name="length" /><br />(Moderators can ban up 
 Description:<br><textarea  name="frontpage"  rows = "15" cols = "45"></textarea><br>
 <button type="Submit">Edit Front Page</button>
 </form>
-<?
+<?php
                 break;
             case 'addcharactor':
 ?>
@@ -420,7 +417,7 @@ Image: <input type="text" name="image" /> <br />(Please use it in this format: i
 <br />
 <button type="submit">Add Charactor</button>
 </form>
-<?
+<?php
                 break;
             case 'editNews':
                 if ($access > 3) {
@@ -430,7 +427,7 @@ Subject: <input type="text" name="subject" /><br /><br />
 Text<hr> <textarea cols="45" rows="15" name="text"></textarea><hr><br />
 <button type="submit">Add News</button>
 </form>
-<?
+<?php
                 }
                 break;
             case 'editC':
@@ -442,7 +439,7 @@ New Credits Amount: <input type="text" name="credits" /><br />
 <br />
 <button type="submit">Edit Credits</button>
 </form>
-<?
+<?php
                 } else {
                     echo "<br />You cannot use the control panel--You have no rank.";
                 }
@@ -457,7 +454,7 @@ New Strength Amount: <input type="text" name="AP" /><br />
 <br />
 <button type="submit">Edit Strength</button>
 </form>
-<?
+<?php
                 } else {
                     echo "<br />You cannot use the control panel--You have no rank.";
                 }
@@ -472,7 +469,7 @@ New Defense Amount: <input type="text" name="AP" /><br />
 <br />
 <button type="submit">Edit Defense</button>
 </form>
-<?
+<?php
                 } else {
                     echo "<br />You cannot use the control panel--You have no rank.";
                 }
@@ -487,7 +484,7 @@ New Max Health: <input type="text" name="AP" /><br />
 <br />
 <button type="submit">Edit Health</button>
 </form>
-<?
+<?php
                 } else {
                     echo "<br />You cannot use the control panel--You have no rank.";
                 }
@@ -502,7 +499,7 @@ New Max Mana: <input type="text" name="AP" /><br />
 <br />
 <button type="submit">Edit Mana</button>
 </form>
-<?
+<?php
                 } else {
                     echo "<br />You cannot use the control panel--You have no rank.";
                 }
@@ -517,7 +514,7 @@ New User XP: <input type="text" name="AP" /><br />
 <br />
 <button type="submit">Edit XP</button>
 </form>
-<?
+<?php
                 } else {
                     echo "<br />You cannot use the control panel--You have no rank.";
                 }
@@ -566,55 +563,55 @@ New User XP: <input type="text" name="AP" /><br />
                     
 ?>
 <form action="edititem.php" method="post">
-<input type="hidden" name="id" <?
+<input type="hidden" name="id" <?php
                     print("value='" . $id . "'");
 ?> />
-Rarity Roll: <input type="text" name="rareroll" <?
+Rarity Roll: <input type="text" name="rareroll" <?php
                     print("value='" . $rareRoll . "'");
 ?> /> <br />(Number of sides the Drop Rate dice has)<br /><br />
-Item Name: <input type="text" name="itemName" <?
+Item Name: <input type="text" name="itemName" <?php
                     print("value='" . $name . "'");
 ?>/><br />
-Item Description: <input type="text" name="itemDescribe" <?
+Item Description: <input type="text" name="itemDescribe" <?php
                     print("value='" . $description . "'");
 ?>/><br />
-Item Image: <input type="text" name="itemimage" <?
+Item Image: <input type="text" name="itemimage" <?php
                     print("value='" . $image . "'");
 ?>/> <br />(Please use it in this format: images/items/item.png) <a href='images/items/' target="_blank">Click Here For List (Opens new window)</a><br /><br />
-Item Type: <input type="text" name="itemtype" <?
+Item Type: <input type="text" name="itemtype" <?php
                     print("value='" . $type . "'");
 ?>/> <br /><a href="index.php?page=cp&cpage=itemTypes" target="_blank">Click Here for list (Opens new Window)</a><br /><br />
-Action Points: <input type="text" name="itemAP" <?
+Action Points: <input type="text" name="itemAP" <?php
                     print("value='" . $AP . "'");
 ?>/> <br />(How much the effect of the item has, HP = Health Restored, Weapon=Damage, etc.)<br /><br />
-Is Buffed: <input type="checkbox" name="isbuffed" <?
+Is Buffed: <input type="checkbox" name="isbuffed" <?php
                     print("value='" . $isbuffed . "'");
 ?>/> <br />(If it isn't buffed you dont have to go on, just leave it as it is)<br /><br />
-Buff Name: <input type="text" name="buffName" <?
+Buff Name: <input type="text" name="buffName" <?php
                     print("value='" . $buffimage . "'");
 ?>/> <br />
-Buff Image: <input type="text" name="buffImage" <?
+Buff Image: <input type="text" name="buffImage" <?php
                     print("value='" . $buffname . "'");
 ?>/> <br />(Please use it in this format: images/items/item.png) <a href='images/items/' target="_blank">Click Here For List (Opens new window)</a><br /><br />
-Buff Battles Left: <input type="text" name="buffBL" <?
+Buff Battles Left: <input type="text" name="buffBL" <?php
                     print("value='" . $battlesleft . "'");
 ?>/> <br />(How many battles it has until the buff would expire)<br /><br />
-Buff Strength Gained: <input type="text" name="buffSTR" <?
+Buff Strength Gained: <input type="text" name="buffSTR" <?php
                     print("value='" . $str . "'");
 ?>/><br />
-Buff Defense Gained: <input type="text" name="buffDEF" <?
+Buff Defense Gained: <input type="text" name="buffDEF" <?php
                     print("value='" . $def . "'");
 ?>/><br />
-Buff Max HP Gained: <input type="text" name="buffHP" <?
+Buff Max HP Gained: <input type="text" name="buffHP" <?php
                     print("value='" . $maxHP . "'");
 ?>/><br />
-Buff Max MP Gained: <input type="text" name="buffMP" <?
+Buff Max MP Gained: <input type="text" name="buffMP" <?php
                     print("value='" . $maxMP . "'");
 ?>/><br />
 <br />
 <button type="submit">Edit Item</button>
 </form>
-<?
+<?php
                 }
                 break;
             case 'listitems':
@@ -702,12 +699,12 @@ List of Items<br>
 <td width="5%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">AP</font></small></td>
 <td width="60%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Description</font></small></td>
 </tr>
-<?
+<?php
                     echo $textI;
                     
 ?>
 </tr></table>
-<?
+<?php
                     
                 } else {
                     echo "<hr>You lack the sufficient rank!<hr>";
@@ -734,7 +731,7 @@ Buff Max MP Gained: <input type="text" name="buffMP" /><br />
 <br />
 <button type="submit">Add Item</button>
 </form>
-<?
+<?php
                 break;
             case 'tickR':
                 if ($access > 1) {
@@ -955,7 +952,7 @@ Buff Max MP Gained: <input type="text" name="buffMP" /><br />
 <td width="20%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Ticket</font></small></td>
 <td width="40%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Sender</font></small></td>
 <td width="40%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Date</font></small></td>
-<?
+<?php
                         echo $ticketT;
                         echo "</td></tr></table>";
                     } else {
@@ -981,13 +978,13 @@ Buff Max MP Gained: <input type="text" name="buffMP" /><br />
 <table border=2 cellpadding="0" cellspacing="0" id="gamet" width=100% bgcolor="#2b2b2b">
 <tr>
 <td><center>
-<?
+<?php
                         writecpMenu();
 ?>
 </center></td>
 </tr>
 </table>
-<?
+<?php
                         
                         
                         break;
@@ -997,13 +994,13 @@ Buff Max MP Gained: <input type="text" name="buffMP" /><br />
 <table border=2 cellpadding="0" cellspacing="0" id="gamet" width=100% bgcolor="#2b2b2b">
 <tr>
 <td><center>
-<?
+<?php
                         writecpMenu();
 ?>
 </center></td>
 </tr>
 </table>
-<?
+<?php
                         
                         
                         break;
@@ -1013,13 +1010,13 @@ Buff Max MP Gained: <input type="text" name="buffMP" /><br />
 <table border=2 cellpadding="0" cellspacing="0" id="gamet" width=100% bgcolor="#2b2b2b">
 <tr>
 <td><center>
-<?
+<?php
                         writecpMenu();
 ?>
 </center></td>
 </tr>
 </table>
-<?
+<?php
                         
                         
                         break;
@@ -1029,13 +1026,13 @@ Buff Max MP Gained: <input type="text" name="buffMP" /><br />
 <table border=2 cellpadding="0" cellspacing="0" id="gamet" width=100% bgcolor="#2b2b2b">
 <tr>
 <td><center>
-<?
+<?php
                         writecpMenu();
 ?>
 </center></td>
 </tr>
 </table>
-<?
+<?php
                         
                         break;
                 }
@@ -1538,13 +1535,13 @@ Buff Max MP Gained: <input type="text" name="buffMP" /><br />
 <table border=2 cellpadding="0" cellspacing="0" id="gamet" width=100% bgcolor="#2b2b2b">
 <tr>
 <td><center>
-<?
+<?php
                 writegamemenu();
 ?>
 </center></td>
 </tr>
 </table>
-<?
+<?php
                 $credits = 0;
                 $query   = "SELECT * FROM va_users";
                 $result  = mysql_query($query);
@@ -1566,7 +1563,7 @@ Current Password: <input type="password" name="cPass"><br><br>
 New Password: <input type="password" name="nPass"><br><br>
 <button type="submit">Change Password</button>
 </form>
-<?
+<?php
                         break;
                     case 'cpS':
                         echo "<hr><center>Change of Password succeeded!";
@@ -2181,7 +2178,7 @@ Item Search
 <button type="submit">Search</button>
 </form>
 <hr>
-<?
+<?php
                         break;
                     case 'iSearch':
                         if (isset($_GET['name'])) {
@@ -2498,7 +2495,7 @@ Change Guild Description:
 <hr>
 <br><button type="submit">Change Guild Description</button>
 </form>
-<?
+<?php
                                     break;
                                 case 'changeP':
 ?>
@@ -2509,7 +2506,7 @@ Change Guild Page:
 <hr>
 <br><button type="submit">Change Guild Page</button>
 </form>
-<?
+<?php
                                     break;
                             }
                             
@@ -2956,7 +2953,7 @@ Organize Inventory
 <td width="25%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Name</font></small></td>
 <td width="50%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">What to do</font></small></td>
 </tr>
-<?
+<?php
                         for ($i = 0; $i < $maxI; $i++) {
                             if ($color == "#636363") {
                                 $color = "#808080";
@@ -3000,7 +2997,7 @@ Organize Inventory
 </table>
 </form>
 
-<?
+<?php
                         break;
                     case 'spellinfo':
                         $sName = $_GET['name'];
@@ -3122,7 +3119,7 @@ Text<hr><textarea name="text" cols=60 rows=15></textarea><hr>
 <button type="submit">Submit User Ticket</button>
 </form>
 <hr />
-<?
+<?php
                         break;
                     case 'crea':
                         echo "<hr>The ticket has been created, we will respond A.S.A.P.<hr>";
@@ -3144,7 +3141,7 @@ Guild Pass: <input type='password' name='pass' /><br />
 <button type="submit">Join Guild</button>
 </form>
 <hr />
-<?
+<?php
                         
                         break;
                     case 'joinF':
@@ -3170,7 +3167,7 @@ Guild Description<hr><textarea name="describe" cols="65" rows="15"></textarea><h
 <button type="submit">Create Guild</button>
 </form>
 <hr />
-<?
+<?php
                         
                         break;
                     case 'library':
@@ -3200,7 +3197,7 @@ Name
 </tr>
 <tr>
 <td colspan="2" bgcolor="#636363"><p align="center"><small><font face="Verdana">
-<?
+<?php
                                     echo $name;
 ?>
 </font></small></td>
@@ -3215,18 +3212,18 @@ Text
 </tr>
 <tr>
 <td colspan="1" width="30%" bgcolor="#636363"><p align="center"><small><font face="Verdana">
-<?
+<?php
                                     echo $description;
 ?>
 </font></small></td>
 <td colspan="1" width="70%" bgcolor="#636363"><p align="center"><small><font face="Verdana">
-<?
+<?php
                                     echo $text;
 ?>
 </font></small></td>
 </tr>
 </table>
-<?
+<?php
                                     break;
                                 case 1:
                                     $query   = "SELECT * FROM va_books";
@@ -3275,12 +3272,12 @@ List of Books
 <td width="15%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Author</font></small></td>
 <td width="60%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Description</font></small></td>
 </tr>
-<?
+<?php
                                         echo $textW;
                                         
 ?>
 </tr></table>
-<?
+<?php
                                     }
                                     break;
                                 case 2:
@@ -3289,7 +3286,7 @@ List of Books
 <form action="spellinfo.php" method="post">
 <input type="text" name="spellname"><br><br><button type=submit>Get Spell Info</button>
 </form>
-<?
+<?php
                                     echo "<hr>";
                                     break;
                             }
@@ -3302,7 +3299,7 @@ List of Books
 <hr />
 <form action="donitem.php" method="post">
 User to Donate: <input type="text" name="user" /><br />
-<input type="hidden" name="id" <?
+<input type="hidden" name="id" <?php
                         echo "value='" . $_GET['id'] . "'";
 ?> /><br />
 Message<hr />
@@ -3311,7 +3308,7 @@ Message<hr />
 <button type="submit">Donate Item</button>
 </form>
 <hr />
-<?
+<?php
                         break;
                     case 'npcShops':
                         $query  = "SELECT * FROM va_users";
@@ -3637,7 +3634,7 @@ Book Text<hr><textarea name="bText" cols="65" rows="15"></textarea><hr>
 Auth. Pass: <input type="password" name="bPass"><br><br>
 <button type="submit">Write Book</button>
 </form>
-<?
+<?php
                         break;
                     case 'GFAW':
                         $itemID = $_GET['id'];
@@ -3764,7 +3761,7 @@ New Amount: <input type="text" name="AP" /><br />
 <input type="hidden" name="todo" value="1"/><br />
 <button type="submit">Edit Entry Toll</button>
 </form>
-<?
+<?php
                                 break;
                             case 'setExitT':
 ?>
@@ -3773,7 +3770,7 @@ New Amount: <input type="text" name="AP" /><br />
 <input type="hidden" name="todo" value="2"/><br />
 <button type="submit">Edit Exit Toll</button>
 </form>
-<?
+<?php
                                 break;
                             case 'extract':
                                 echo "<hr>Withdraw Failed!<hr>";
@@ -3877,12 +3874,12 @@ List of Items
 <td width="5%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">AP</font></small></td>
 <td width="60%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Description</font></small></td>
 </tr>
-<?
+<?php
                         echo $textI;
                         
 ?>
 </tr></table>
-<?
+<?php
                         break;
                     case 'attack':
                         if (isset($_GET['attackID'])) {
@@ -5922,14 +5919,14 @@ List of Items
 <form action="sellitem.php" method="post">
 Price: <input type="text" name="price"><br>
 <input type="hidden" name="invID"
-<?
+<?php
                             print("value='" . $_GET['id'] . "'");
 ?>
 >
 <br>
 <button type="submit">Sell</button>
 </form>
-<?
+<?php
                         } else {
                             echo "You dont have a warehouse!";
                         }
@@ -6092,7 +6089,7 @@ Shop Inventory
 <td width="45%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Price</font></small></td>
 <td width="45%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Remove</font></small></td>
 </tr>
-<?
+<?php
                                     for ($i = 0; $i < $maxI; $i++) {
                                         if ($color == "#636363") {
                                             $color = "#808080";
@@ -6120,7 +6117,7 @@ Shop Inventory
 </td></tr>
 </table>
 </form>
-<?
+<?php
                                     
                                     
                                     break;
@@ -6135,12 +6132,12 @@ Shop Inventory
 <hr>
 <form action="editND.php" method="post">
 Name: <input type="text" name="name"
-<?
+<?php
                                     print("value='" . $name . "'");
 ?>
 ><br />
 Description<hr> <textarea cols="30" rows="15" name="desc">
-<?
+<?php
                                     print($desc);
 ?>
 </textarea><hr>
@@ -6149,7 +6146,7 @@ Description<hr> <textarea cols="30" rows="15" name="desc">
 <button type="submit">Edit Name & Desciption</button>
 </form>
 <hr>
-<?
+<?php
                                     break;
                             }
                         } else {
@@ -6413,7 +6410,7 @@ Description<hr> <textarea cols="30" rows="15" name="desc">
 <td colspan="2" id='top'>
 <center>
 To: <input type="text" name="to"
-<?
+<?php
                         if (isset($_GET['totext'])) {
                             echo "value='" . $_GET['totext'] . "'";
                         } else {
@@ -6422,7 +6419,7 @@ To: <input type="text" name="to"
 ?>
 ><br><br>
 Subject: <input type="text" name="subject"
-<?
+<?php
                         if (isset($_GET['subject'])) {
                             $subject = str_replace("%20", " ", $_GET['subject']);
                             echo "value='re: " . $subject . "'";
@@ -6481,7 +6478,7 @@ Message<br>
 </table>
 </center>
 </form>
-<?
+<?php
                         break;
                     case 'donS':
                         echo "<hr>Donation Successful!</hr>";
@@ -6496,14 +6493,14 @@ Message<br>
 Amount: <input type="text" name="amount" value="0"><br><br>
 <hr>Message <br> <textarea cols="50" rows="15" name="message">Type your message here!</textarea><hr>
 <input type="hidden" name="id"
-<?
+<?php
                         echo "value='" . $_GET['id'] . "'>";
 ?>
 <br>
 <button type="submit">Give Credits</button>
 </form>
 </center>
-<?
+<?php
                         break;
                     case 'chat':
                         
@@ -6844,7 +6841,7 @@ Amount: <input type="text" name="amount" value="0"><br><br>
 <td width="30%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Recipiant</font></small></td>
 <td width="30%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Sender</font></small></td>
 <td width="30%" bgcolor="#a16410"><p align="center"><small><font face="Verdana">Amount</font></small></td>
-<?
+<?php
                             echo $bountyT;
                             echo "</td></tr><tr><td colspan=\"4\" bgcolor=\"#a16410\"><center><small><font face=\"Verdana\"><a href=\"index.php?page=game&gamepage=setbounty\">Click Here to Set A Bounty on a Player</a></font></small></center></td></tr></table><hr />";
                         } else {
@@ -6865,7 +6862,7 @@ Amount of Credits: <input type="text" name="bounty" /><br />
 <br />
 <button type="submit">Add Bounty</button>
 </form>
-<?
+<?php
                         break;
                     case 'hire':
                         echo "<br>There is no one currently up for hire!";
@@ -7227,7 +7224,7 @@ Email:  <input type="text" name="email"><br><br><br>
 <button type="submit">Register</button> <button type="reset">Reset</button>
 </center>
 </form>
-<?
+<?php
         break;
     case 'register':
         $open = GameIsOpen();
@@ -7242,7 +7239,7 @@ Email:  <input type="text" name="email"><br><br><br>
 <button type="submit">Register</button> <button type="reset">Reset</button>
 </center>
 </form>
-<?
+<?php
         } else {
             echo "The game is not open!";
         }
@@ -7266,7 +7263,7 @@ Password: <input type="password" name="pass"><br><br><br>
 </center>
 </form>
 <a href='index.php?page=register'>If you aren't a user, register please!</a>
-<?
+<?php
         } elseif (empty($_COOKIE['va_users']) == false) {
             echo "<br>You are logged in, " . $usr_N_R . "!";
         } else {
