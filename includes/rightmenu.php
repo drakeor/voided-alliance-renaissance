@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 This file and all others are protected by
 a GPL.  Please read the licence before
@@ -110,7 +110,7 @@ echo "Player Search";
 <script type="text/javascript">
 
 var currenttime = '<!--#config timefmt="%B %d, %Y %H:%M:%S"--><!--#echo //var="DATE_LOCAL" -->' //SSI method of getting server date
-var currenttime = '<? print date("F d, Y H:i:s", time())?>' //PHP method of getting server date
+var currenttime = '<?php print date("F d, Y H:i:s", time())?>' //PHP method of getting server date
 
 var serverdate=new Date(currenttime)
 
@@ -134,7 +134,7 @@ setInterval("displaytime()", 1000)
 <p><b>Current Game Time:</b> <span id="servertime"></span></p>
 
 <hr>
-<?
+<?php
 echo "</center>";
 echo "</td>";
 mysql_close();

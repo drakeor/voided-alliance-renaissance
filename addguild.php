@@ -1,4 +1,4 @@
-<?
+<?php
 /*
 This file and all others are protected by
 a GPL.  Please read the licence before

@@ -1,4 +1,4 @@
-<?
+<?php
   function parse_mysql_dump($url){
     $file_content = file($url);
     $query = "";
@@ -39,7 +39,7 @@ echo "Successful <br>";
 echo "Creating Config file.........";
 $configfile = "config.php";
 $writeconfig = fopen($configfile, 'w') or die("Cannot create/edit config File.");
-$stringData = "<? \n";
+$stringData = "<?php \n";
 fwrite($writeconfig, $stringData);
 $stringData = "$" . "dbhost = " . "'" . $dbhost . "'" . ";" . " \n";
 fwrite($writeconfig, $stringData);
