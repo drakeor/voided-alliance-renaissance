@@ -27,6 +27,7 @@ $numberonline = 0;
 $onlinelist = "";
 $logouttime = date('ymdHi');
 $logouttime = floor($logouttime);
+$isbanned3 = false;
 
 $banTime = date('ymdHi');
 $banTime = floor($banTime);
@@ -137,7 +138,7 @@ setInterval("displaytime()", 1000)
 <?php
 echo "</center>";
 echo "</td>";
-mysql_close();
+
 }
 
 ?>

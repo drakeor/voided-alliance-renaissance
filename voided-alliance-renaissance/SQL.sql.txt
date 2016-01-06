@@ -1,0 +1,847 @@
+-- phpMyAdmin SQL Dump
+-- version 2.9.0.2
+-- http://www.phpmyadmin.net
+-- 
+-- Import this into your database.
+--
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_NPCshop`
+-- 
+
+CREATE TABLE `va_NPCshop` (
+  `id` int(255) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `script` text NOT NULL,
+  `image` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `va_NPCshop`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_NPCstock`
+-- 
+
+CREATE TABLE `va_NPCstock` (
+  `id` int(255) NOT NULL auto_increment,
+  `itemid` int(255) NOT NULL default '0',
+  `shopid` int(255) NOT NULL default '0',
+  `price` int(255) NOT NULL default '0',
+  `respawnT` int(255) NOT NULL default '0',
+  `respawnCT` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `va_NPCstock`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_bank`
+-- 
+
+CREATE TABLE `va_bank` (
+  `id` int(255) NOT NULL auto_increment,
+  `playerid` int(255) NOT NULL default '0',
+  `itemid` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Dumping data for table `va_bank`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_bans`
+-- 
+
+CREATE TABLE `va_bans` (
+  `id` int(255) NOT NULL auto_increment,
+  `playerid` int(255) NOT NULL default '0',
+  `length` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `va_bans`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_books`
+-- 
+
+CREATE TABLE `va_books` (
+  `id` int(255) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `author` text NOT NULL,
+  `description` text NOT NULL,
+  `text` text NOT NULL,
+  `level` int(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+-- 
+-- Dumping data for table `va_books`
+-- 
+
+INSERT INTO `va_books` VALUES(1, 'Poor o'' Plenty', 'Unknown', 'The Poor''s Books.', '<i>This book seems to have been written in another language.</i>','0');
+INSERT INTO `va_books` VALUES(2, 'The Great Adventure', 'Yello, Kini', 'A strange abstract story', '<i>The pages in this book are blank...</i>','0');
+INSERT INTO `va_books` VALUES(3, 'The Tome of the Undead', '<i>Illegible</i>', 'A very old dusty book with a skull on the cover.', '<i>As you pick the book up you feel cold as ice.<br>You try as hard as you can to open it but it wont budge, perhaps it''s magically sealed...</i>','0');
+INSERT INTO `va_books` VALUES(4, 'Legend of the Bronze Plasma', 'Groad, Jonathan', 'A thin dark leather book with gold embedded in it.', 'A legend passed down from every generation the Groad dynasty...<br><b>The Bronze Plasma</b><br>Some say it would never exist and, if it did, we would know. I do not believe that we were meant to know.  Though I will explain the story...<br>There was once a chemist-forger who was experimenting with strange substances found on a planet only few know about when one day a concoction went very wrong and nearly destroyed the ship, after everything has subsided there, in a beaker, lay the legendary bronze plasma.<br>He headed back to the Gladius system to inform the local Chemist Master, but when he got there the plasma was gone and the beaker was empty.<br>Some say that it wasn''t ever there, just a figment of his imagination. Though others say it was so hot it must''ve melted away...<br>The Chemist Master was never the same afterwards, he was obsessed about finding the recipe, though one experiment went wrong and he was killed in an explosion, so the legend lives on. Even today people risk their lives to find this mysterious plasma...','0');
+INSERT INTO `va_books` VALUES(5, 'The Simple Elements', 'Reich, Thomas', 'A red book with wooden trimming on the sides', 'In this book you will find the most simple 3 damage spells that were made, and the elements behind them.<br><br>Lets start fire spells, these spells can do a lot of damage, though marginally weak most of the time, useful in many cases.  Of course expirimenting is the best way of figuring out the best spells, but here is one I know is a fire spell: ''flame''.  This spell will cause a fire to blast the enemy and damage them for quite a lot of damage.<br>Now what about frost?  This is a rather weak magic, though strikes a lot more then fire.  There are many of these spells, like ''ice'' and ''snow'', both of them are quite good.  This magic is the most simple, as it does the least amount of damage.  Now the last simple element spell is the Shock damage, like ''battery''.  This is quite more advanced, therefore doing more damage. Do not rely on it too much though, shock damage is prone to missing more then any other simple element. There are more advanced elements that do massive amounts more damage, too.','0');
+INSERT INTO `va_books` VALUES(6, 'Changes', 'sportzking', 'Weapons advancements', 'On July 29th the face of this game was changed forever. Raygoe and I created many new weapons for all of you playerss enjoyment. To see the weapons go to Raygoes or my warehouse. The weapons look great. Thank you more soon to come.\r\n','0');
+INSERT INTO `va_books` VALUES(7, 'The Advanced Elements', 'Reich, Thomas', 'A green book with wooden trims.', 'There are many powerful advanced elements, only usable after reading the elemental tomes.  Only the person who reads the tome first can open it again, that way it seals itself to the owner, although it is said to dissapear when read correctly.\r\nHere is a list of the elements and their tomes.\r\n\r\nUndead - The Tome of the Undead.\r\nHoly - The Holy Tome.\r\nNature - The Tome of the Living.\r\nTrinity - The Trilogy Tome.','0');
+INSERT INTO `va_books` VALUES(8, 'Cook Book', 'Phillip, John', 'A red worn book with a cake on the front.', 'I bet you are wondering how to make a Fiery Chocolate Goo?  Or maybe the always wanted Chocolate Potion for your favorite party. You may find it here, but beware, the fire is hot!<br><br><b>Fiery Chocolate Goo</b><br>Complexity: 2<br>Combine Fiery Ember with Chocolate Goo in an oven.<br><i>I am told there are many ways to make this usefull substance, though I have not discovered one yet.</i><br><br><b>Chocolate Potion</b><br>Complexity: 4<br>Combine Chocolate Cake with a Hot Chocolate to make a Chocolate Goo, then combine this with the standard healing potion and brew in a chemistry lab, then you will have a lovely dark brown potion that is good for healing.<br><br><i>I hope you enjoyed this great guide!</i>','0');
+INSERT INTO `va_books` VALUES(9, 'The World in There Hands ', 'Smith, Yhnujm', 'A large book with silver lined pages', 'Time over time I have been screwed over by some occurrence mostly by a friend and every time they denied know anything about it. I can tell they lie, by the glint in there eye or the denial of an action.\r\nNo more, no more of being fooled and trustworthy of everyone you once called a friend. It is a allusion to your eyes nothing more but a bomb waiting to explode. But there is always something inside of you, something begging to forgive them. It is nearly impossible to get rid of this feeling of guilt.\r\nBut as you do forgive them it gives them another chance to eat at you. Destroy everything you called precious and use it to there own gain. It makes you wonder,  Who can be trusted, is there not one soul in the human race or for that matter the entire world willing to stick to being a friend no matter what the situation is? Or is the human race nothing but a creature willing to do anything to be the best or to gain the power they lack?\r\nObviously the answer is no, at least no to a certain extent. The year is 3113. It has been 800 years since the meteor crash in the center of what was once called Greenland. The world was enslaved by an outside force. The meteor was approximately 20 square miles in size. Once it hit Earth it totally destroyed the most Northern points in the world. Nearly everyone in the upper half of the Northern Hemisphere was killed instantly, and the ones that managed to stay alive were killed by a different type of radiation unknown by humans.\r\nLife sense the meteor struck was dramatically changed. Our history books, ( or at least the 750 year old ones) tell us that the world plunged into a stage of total panic. The meteor not only bring worldwide sickness, it also brought a artificial intelligence. A type of robot that was nothing more then a power hungry race of unnatural behavior.\r\nBut like every other intelligence there are a few that society accepted as there own. But I seemed like the only one who believed these things were nothing more then another bomb.\r\nAfter the impact no one wouldnt go near the meteor until a group of scientist wearing protective suits came and took huge samples of the meteor for examination back at there lab. The pieces of metal and unthaw able ice were more then that. The scientists protective suits werent enough to save them from what was about to happen.\r\nAfter having the space rock for a little over 20 days ( 54 years after impact) the rock seemed to give out 10 times as much radiation and started to give off a faint glow. The rock started to shack as well then cracks formed all around the jagged rocks all at the same time. Until finally they split open to reveal an unknown creature it was a pale gray and green. It was about 2 feet higher then an average person and had a strange resemblance to a robot. It didnt move at all. A couple seconds later his sharp crooked fingers started to move gently around the sides of the meteor. The scientists backed away to the door. One of them my brother tells me was a great grandfather to our family. It came out of the meteor and seemed harmless but then a great light crashed though every doctor like a sharp blade and killed each and everyone of them. The thing seemed to have a built in gun on the middle of his hand.\r\nAfter that day the world was taken over by the things except for a small colony of people. About 2.5 thousand of us. Most of us were children the adults were killed by there foolishness to think they could kill the things that have invaded us. We people must live alone and hide. Like rats in the sewer, we are pathetic. We eat what was left after the impact mostly consistent of moldy bread. And the animals.\r\nMy name is Sander. I live in a wore down shack abandoned in the impact. Even throe it is old and in bad shape it has a lot of free space. There are 20 camps that all the people live in. There are about 125 in each camp. My only real friend is my brother named Seth. Our parents were killed in a attempt to destroy what had destroyed our home. My dad charged at it in a kind of battle cry and was killed in the site of me and my brother. My mom really didnt want to take action but was kidnapped at once. We havent seen her sense.\r\nEven there is more bad news then good we still make a living and even have a teaching system. And the many people that died in the attempt to save us did manage to kill a few of the enemy and bring them back for examination. The few scientist left found a way to unlink them from were they were getting orders from and we used them to fight in the lasting war. I still dont trust the few things that were changed to be on our side. And a few of them on our side still didnt matter if the enemy had at least l0000. Little is known how they still work, we dont even know if they have a leader or not. But one thing is sure if we dont do something quick we will all die.\r\nChapter two\r\nWake up. Its time to leave. Wake up Sander. We are all leaving, and unless you want to die on your bed wake up.\r\nWhat are you talking about Seth. Looking around the room he saw the other end where his brother slept, to the messy bread crumbs all in his and his brothers bed. What are you talking about everythings fine.\r\nIts not now the creatures have found our base they will invade us no later then 3 more hours. We need to go now before they find us.\r\nLearning this he hesitated and got out of his bed and headed to the old wore out closet to find his oversized book bag.\r\nIll be ready in a few minutes.\r\nDont waste your time packing only take what is needed and nothing less we need all the space we can get.\r\n I know, I know. Looking around the room he didnt see anything that was really worth taking with him. So he continued to pick up dirty close scattered across the floor, and some food stored in some containers.\r\nAre you ready?\r\nYa just let me put it together.\r\nOkay when your done meet me outside. Before leaving to go outside he scanned the room and remembered all that had happened here. And walked to the door. But before he walked out of the room he noticed something on the top of his dresser. It was the picture of his parents and all of his family together in one of the only times in his life he was truly happy despite the despair in the world. He knew that it wasnt really needed to live but he wouldnt trade it for anything so he hid in one of the side pockets of his pack. And rushed down towards the door leading outside. But when he opened the door his worse fear had came true. In the background were hundreds maybe thousands of the creatures. Panicking he looked for his brother. But he was nowhere.\r\nPanicking he rushed into the nearby forest. Thoughts rushed through his mind. What am I going to do if he dies, hes the only person I trust. His mind was quieted after he saw a rush through the wet leafs. Whos there?\r\nIts me dont have a panic attack. He turned and saw it was his brother\r\nI thought you told me to meet you outside.\r\nI did but I hid at the site of the sneak attack of the things, I was waiting for you. What about the others.\r\nI dont know yet, a few might have gotten away but I know theres not many, but I do have a few people and a robot from the camp with us. He pointed to a small emergency dugout hole built for when things like this happen. There were about 35 left. Including a robot.\r\n Well what are we going to do now. I mean we have no shelter and barely enough food to last is two weeks.\r\nI guess we will just have to restart and find some old buildings to live in until we find something better. Said Seth lazily looking at what was left.\r\nWell shouldnt we wait for the others?\r\nNo, if they are alive we will all meet at the same place. Dont think we havent planed for this we all knew that it would eventually happen.\r\nThen were in the world is this wonderful meeting spot? Sander said in sarcasm. Well isnt it obvious? The impact crater. Chapter Three\r\n\r\nThe impact crater!?\r\nYes??.\r\nHave you gone mad! That place is crawling with those things!\r\nHow do you know?\r\nSander paused and thought to himself, Well hes got a point but I cant make myself look stupid. He could tell that his brother knew that I didnt really know. Well isnt it common sense that tells you that there would be?\r\nSeth grinned. Well if you think about it the answer is no. You know that they all you can say hatched at the same time right? Well they all have the same goal is to gain control of the planet, Right. So there would be no purpose if they all stayed there. And what if were wrong?\r\nWe will probably all die. Sander grimaced. Seth must have noticed and said, ,but there is a 100% chance we will all die if we dont.\r\nHim saying this brought back memories of when they would have small lessons of school back at the camps. Mrs. Whisnant would teach them percents and other mathematical terms and Mrs. Frazier and Mrs. Williams would teach them English. Back then he always considered himself to be gifted in writing, so good infact that his teachers believed he copied it from an old textbook.\r\nHis memories were cut short from a nearby explosion of a bright beam.\r\nRun! Yelled my brother.\r\nSander rushed as fast as possible in the footsteps of his brother.\r\nWhere are we going to run to?\r\nI dont know but anywhere besides here is fine. About 20 feet in front of him he saw a huge metal object most of it hidden in the thick forest.\r\nThere! He yelled.\r\nHis brother responded and lead the group into what seemed to be a large tank used in the past 50 years to fight off the invaders. I crammed myself into the small compartment along with my brother.\r\nTheres room for only one more person, the closest one here get in! He bellowed out. The robot was the closest and accepted his order and jammed itself inside the small room.\r\nNot you, you mindless zombie! The robot started out of the compartment but was stopped by Seth.\r\nWhat are you doing! Shouted Sander .\r\nHe is the most important out of the group, we cant afford losing him and besides the others have probably ran off by now. Sander resisted for a moment and hesitantly agreed. The robot seemed somewhat pleased with himself. Sander cursed the robot and hated for such a thing that had destroyed nearly all humans was snuggled up to him. But Sander grinned and thought Well thats one story that the teachers wouldnt believe either.\r\nThey sat and waited for about 10 minutes. Then after the wait they finally heard footsteps. Sander froze. It were getting closer and seemed to be heading dead towards them. After about 5 seconds the person was on top of the old battle tank. Sander jumped as he felt a spider drop on his ear from the messy spider web above and hit the top of the hatchet. He froze and so did whatever was walking on top of the tank. The rust of the tank fell on Sanders head. Somehow he could feel something stare at him. The hatchet twitched and swung open to reveal what was hoped not to be there. It was on of the things it scanned the inside of the hatchet and Sander for a second hated himself to be sitting the closest to the hatchet.\r\nThe creature swung forward his arm and grabbed Sander by the neck and stood him up on top of the tank. His brother lunged forward to try to stop it but the thing lazily pushed him back in. It was the first time Sander ever seen one of them up-close and saw its flashing yellow eyes stare at him. The robot suddenly pulled his other hand up to Sanders face.\r\nSander thought This is it after all these years of fighting back the intruders his time had finally had come to die.\r\nThe palm of its hand glowed a white metal hot light. But as soon as the thing started to release the charge the robot raised his hand and blasted the same white charge as the other things did. Its aim was perfect. It landed strait into the things head and decapitated most of its head. It loosened its grip on Sander and fell forward into the rusty toping of the tank. Sander took a few steps back and fell on his knees barley keeping a steady hold from falling on to the metal. He shacked and looked at the thing once holding him and back to the robot that saved his life. He looked at the robot and said a disoriented thank you. The robot nodded and turned out of the tank and checked there surroundings. Seth poked his head out of the tank and looked around then at Sander. I bet you are a little more trustful to the robots now. Not really He said still shaking.\r\nThen got to his feet. Well lets go we need a impact crater to get to! Seth watched dumbfounded at his recovery.\r\nWell will you at least say thank you to him? No I will not say thank you to it. Chapter Four\r\n\r\nI swear you are are the most ungrateful human being in the world.\r\nWell its not that hard to be when theres only two left by the looks of it and plus theres nothing to be thankful for.\r\nSeth snorted loudly. Well one thing to be thankful for is your life if it werent for him?\r\nThing! Sander corrected loudly.\r\nAnyways, it saved your life and thats all that matters.\r\nWhat matters is that we are stranded in the middle of nowhere and have barely any food, and plus we have to be stranded with that pathetic piece of scrap!\r\nWhy do you hate them so much, it never did anything to you\r\nYou know what your right, it never did nothing to me except destroy the world and kill our parents. And at the word parents a tear rolled down the side of his face but quickly wiped it away and continued.\r\nNever mind. Lets go before the rest of them get here. But before we do lets make sure that the tank doesnt have anything we can use.\r\nHe walked back over to the tank and was glad to when he noticed that his pack was still in there. But when he opened it he discovered that the picture stored away in the side pocket had a large crack down the middle of the frame running from side to side.\r\nHe sighed and stuck it back in the side pocket.\r\nHey! I found a few weapons stored away in here!\r\nTheres a couple of pistols and a shotgun and something else in here I dont know what it is.\r\nThat would be a grenade . Sander said learning from them in some old books that were recovered from some old houses.\r\nWhat do they do? Seth said holding the grenade to his eyes and watching it closely touching the release cap.\r\nNo! Sander yelled.\r\nWhy, whats wrong its nothing but an oval shaped piece of metal. \r\nWell that piece of metal is a kind of bomb that explodes after a few seconds after releasing that cap. Seth quickly dropped it and backed away.\r\nBut dont worry you would have to be pretty stupid to catch that grenade open. But just to be safe lets put it in my pack so it wont get anywhere.\r\nSander lifted the two pistols and put both safely in his separate side pockets making sure to put them on safety.\r\nHere you can have the shotgun you can keep it on your back just put the strap over your shoulders. Sander paused and looked at a small container with about 20 shotgun shells and box full of shells.\r\nIll keep the ammo in my pack to.\r\nSo where us our first stop? Are we going to go to a small town of some kind ?\r\nWell our destination point is of course Greenland. But I guess we will make a few stops on the way such as parts of Canada.\r\nWait a second, where is that thing ?\r\nYou mean the robot.\r\nNo, I meant the thing.\r\nI dont know he went to look around to make sure there were no intruders. Robot!. Seth yelled out.\r\nImmediately the robot came crashing through the woods towards them.\r\nWhere have you been?\r\nPatrolling Said the robot mechanically.\r\nSander stared at it. He hated the fact it could talk.\r\nWell we need to get there as fast as possible.\r\nSander looked ahead to see the thick forest staring back at him he felt as if there were a million eyes staring down upon him. In fact he could swear that he could here the leafs surrounding him ruffle in a quick breeze. At last they made it to the end of the forest. They stared at the vast plain of green grass swaying in the wind as the blue sky and a vast amount of sunshine welcomed them into there new surroundings. Nothing but hills of grass occupied as far as there eyes could see.\r\nCant we stay here for a while until you know the things pass?\r\nI guess we can stay here till morning.\r\nSander sank to the ground and unpacked some towels to sleep on. The sun began to sink behind the hills as dawn came. They both drifted to sleep after a small meal of cold crackers and cheese then drifted to a haunting sleep of nightmares full of images of the things yellow heartless eyes. They awoken the next morning by the sound of a distant march.\r\nWhats that sound? Sander said yawning upward.\r\nDunno sounds like a load of metal to me.','0');
+INSERT INTO `va_books` VALUES(10, 'Hanz''s Kitchen Book 1', 'Chef Hanz', 'The first edition of the Hanz Cookbooks', 'This very first issue of Hanz''s Kitchen is based on Chef Master Hanz''s 20 year job as a chef.\r\nIn this issue we will teach you how to make an old recipe called CHOCOLATE GLAZED DOUGHNUTS<br>\r\n<br>\r\n<b>CHOCOLATE GLAZED DOUGHNUTS</b><br>\r\nComplexity: 4<br>\r\nIngredients: Fiery Chocolate Goo, and a Doughnut<br>\r\nDirections: Combine your doughnut with chocolate goo in the oven; it should come out as a chocolate glazed doughnut.','0');
+INSERT INTO `va_books` VALUES(11, 'Guide To Making Great Armor', 'Merchant B, Jefferson', 'A book containing the basics of Forging', 'Hello, have you ever wondered how you can make effective armor, or make one at all? Well worry no more, this book can help you out. We gather armor blueprints from all over the world from top quality smiths. In this series we will teach you the basics of making armor.<br>\r\n<br>\r\nFirst most importantly you need bars. What is a bar? It?s an ore combined with heat. \r\nArmor require different amount of bars, the more bars you use the stronger the armor will be. <br>\r\nNOTES:  You can make armors in your factory under the FORGING section.','0');
+INSERT INTO `va_books` VALUES(16, 'Armor Crafting for Cavemen', 'Billis, John D', 'A book full of very easy recipes for you to attempt.', 'Hello!<br>\r\n<br>\r\nSince you are reading this, I believe you want to know how to make easy armor!<br>\r\nIt is simple! Get the bars and the other ingrediants required and follow me!<br>\r\n<hr>\r\nThermal Shield<hr>\r\nIngrediants:<br>\r\n<br>\r\n2 Iron Bars<br>\r\n2 Plain Magical Dusts<br>\r\n<br>\r\nPut those in your factory and forge!\r\n<hr>\r\nI hope you have found this simple and effective!','0');
+INSERT INTO `va_books` VALUES(12, 'Expertise Cook Book', 'Yhnujm the 3rd', 'A red and blue cookbook that has wood trims and a cupcake on the cover.', 'Lets get to the real point shall we? This book is about recipe so lets get over with the talk. Yes, I know this is not quite advance yet but well get to those soon.<br>\r\n<br>\r\nHere is the recipe: <br>\r\n<b>CHOCOLATE CUPCAKE</b><br>\r\nComplexity: 3<br>\r\nItem needed: dough, fiery chocolate goo. <br>\r\nFirst you need some dough; you can either get it from item drop, or follow these <br>instructions. <br>\r\nIf you have an egg, clear water, and flower, mixes them all together. <br>\r\nPROCESS: Mix and stir. <br>\r\n<br>\r\nSecondly, you have to get fiery goo, which is mentioned how to be made in other cook <br>books. <br>\r\nOnce that is over with, get your dough and fiery goo and bake it into a chocolate cupcake. <br>PROCESS: Bake in oven <br>\r\n<br>\r\nRecipe #2: You asked for it, and now heres an advance recipe. May not be much but <br>these ingredients are not used much, so it is considered as advance. <br>\r\n<b>RADIOACTIVE POTATOE </b><br>\r\nComplexity: 4 <br>\r\nItem needed: radioactive fish, potato, and a fiery ember. <br>\r\nStep 1: Take the radioactive fish and the fiery ember and put them in the oven to make <br>Radioactive Goo. <br>\r\nPROCESS: Bake in oven<br> \r\n<br>\r\nStep 2: Bake the potato in the oven with the radioactive goo. <br>\r\nPROCESS: Bake in oven <br>\r\n','0');
+INSERT INTO `va_books` VALUES(14, 'Erisior''s beginning', 'Erisior', 'The life of Erisior.', 'It was a time of famish and gorey ages wars broke out across the land. One hero rose above the rest and picked up his sword and stuck down the beast being controlled by the galbads. The Galbads fled in terror of the warrior. The warrior died of age 40 years later but not before he gave birth to a son. His son''s name was Maxim, Maxim was great in his training with the kingdom. The kingdom was Altima Gardens. The continent of wonders was where this castle was located. Maxim quickly advanced through training and at the age of 15 was exiled from the kingdom for having an affair with the queen. The queen was executed and Maxim went on with his life. He left the continent and went to the Galbad territory where he was captured. They recognized the crest on his armor and bowed to him. Maxim was then treated like a king. One day The Fire Serpent came down from the mountain for it''s yearly virgin tribute. But they did not want to give up their virgin daughters so Maxim stepped up to the Serpent and drew his sword. The Serpent laughed and complimented the boy''s courage but said it didn''t have time for him. It tried to pass him but he jumped in it''s way again. Infuriated the serpent struck at him. Maxim easily parried the blow and stabbed the Serpent. Surprised the Serpent roared in agony and struck again this time it got Maxim''s shoulder. Maxim was feeling the poison rush through his body. "I will vanquish you" said Maxim angrily. The Serpent struck again but Maxim dodged and with a quick slice removed the Serpent''s head. Maxim collapsed with fatigue and the Galbad Priestess had him taken to her hut. She cleansed him of the venom. Maxim then woke up and hour later and was astonished to see the most beautiful woman he had ever seen staring down at him. "Who are you?" he asked starting to get up but collapses soon after. "My name is Karen, you need to rest you shouldn''t get up" she said smiling. Maxim went back to sleep until tomorrow.\r\n','0');
+INSERT INTO `va_books` VALUES(15, 'English, a hard language to learn', 'yhnujm', 'English is quite a hard language to learn. The text in this book is hard to fully understand, but it means something so simple!', 'English has to be one of the hardest languages to understand. Read the paragraph below and try to understand the meaning. \r\n\r\nTwo individuals proceeded towards the apex of a natural geologic \r\nprotuberance, the purpose of their expedition being the procurement of a sample of fluid hydride of oxygen in a large vessel, the exact size of which was unspecified. One member of the team precipitously descended, sustaining severe damage to the upper cranial portion of his anatomical structure; Subsequently the second member of the team performed a self rotational translation oriented in the same direction taken by the first team member. \r\n\r\nIn plain English what does this translate to? \r\n\r\nJack and Jill went up the hill to fetch a pail of water Jack fell down and broke his crown and Jill came tumbling after!','0');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_bounty`
+-- 
+
+CREATE TABLE `va_bounty` (
+  `id` int(255) NOT NULL auto_increment,
+  `sendID` int(255) NOT NULL default '0',
+  `reciveID` int(255) NOT NULL default '0',
+  `bounty` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `va_bounty`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_buffs`
+-- 
+
+CREATE TABLE `va_buffs` (
+  `id` int(255) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `image` text NOT NULL,
+  `playerid` int(255) NOT NULL default '0',
+  `battlesleft` int(255) NOT NULL default '0',
+  `str` int(255) NOT NULL default '0',
+  `def` int(255) NOT NULL default '0',
+  `maxHP` int(255) NOT NULL default '0',
+  `maxMP` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 
+-- Dumping data for table `va_buffs`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_chat`
+-- 
+
+CREATE TABLE `va_chat` (
+  `id` int(255) NOT NULL default '0',
+  `name` text NOT NULL,
+  `message` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `va_chat`
+-- 
+
+INSERT INTO `va_chat` VALUES (1, '', '');
+INSERT INTO `va_chat` VALUES (2, '', '');
+INSERT INTO `va_chat` VALUES (3, '', '');
+INSERT INTO `va_chat` VALUES (4, '', '');
+INSERT INTO `va_chat` VALUES (5, '', '');
+INSERT INTO `va_chat` VALUES (6, '', '');
+INSERT INTO `va_chat` VALUES (7, '', '');
+INSERT INTO `va_chat` VALUES (8, '', '');
+INSERT INTO `va_chat` VALUES (9, '', '');
+INSERT INTO `va_chat` VALUES (10, '', '');
+INSERT INTO `va_chat` VALUES (11, '', '');
+INSERT INTO `va_chat` VALUES (12, '', '');
+INSERT INTO `va_chat` VALUES (13, '', '');
+INSERT INTO `va_chat` VALUES (14, '', '');
+INSERT INTO `va_chat` VALUES (15, '', '');
+INSERT INTO `va_chat` VALUES (16, '', '');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_classes`
+-- 
+
+CREATE TABLE `va_classes` (
+  `id` int(15) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `description` text NOT NULL,
+  `image` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+
+-- 
+-- Dumping data for table `va_classes`
+-- 
+
+INSERT INTO `va_classes` VALUES (1, 'Human', 'The standard Human Race.', 'images/class/human.png');
+INSERT INTO `va_classes` VALUES (2, 'Allicarin', 'A super intelligent race.', 'images/class/allicarin.png');
+INSERT INTO `va_classes` VALUES (3, 'Human Dark Paladin', 'A mututed Human that is better in every way then a Human.', 'images/class/hdp.png');
+INSERT INTO `va_classes` VALUES (15, 'Alien', 'A small Green Creature', 'images/class/item.png');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_config`
+-- 
+
+CREATE TABLE `va_config` (
+  `id` int(255) NOT NULL default '0',
+  `gamename` text NOT NULL,
+  `lastreset` text NOT NULL,
+  `description` varchar(200) NOT NULL default '1',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `va_config`
+-- 
+
+INSERT INTO `va_config` VALUES (1, 'Voided Alliance', '9.21.06', '<br>Voided Alliance Source: <font color=red><b>Revolution</b></font><br><br>Questions? Comments? Post in our forums! <a href=\"http://forum.auburnflame.com/\">(Click Here)</a>');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_galaxy`
+-- 
+
+CREATE TABLE `va_galaxy` (
+  `id` int(30) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `ownerid` int(30) NOT NULL default '0',
+  `gov` int(255) NOT NULL default '0',
+  `tollEnter` int(255) NOT NULL default '0',
+  `tollExit` int(255) NOT NULL default '0',
+  `register` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+
+-- 
+-- Dumping data for table `va_galaxy`
+-- 
+
+INSERT INTO `va_galaxy` VALUES (1, 'Pegasus', 1, 0, 1000, 0, 3120);
+INSERT INTO `va_galaxy` VALUES (2, 'Kironus', 1, 6, 100, 0, 100072779);
+INSERT INTO `va_galaxy` VALUES (3, 'Nairah', 1, 7, 0, 0, 0);
+INSERT INTO `va_galaxy` VALUES (4, 'Rijk', 1, 9999, 0, 0, 0);
+INSERT INTO `va_galaxy` VALUES (5, 'Arener', 1, 9999, 0, 0, 0);
+INSERT INTO `va_galaxy` VALUES (6, 'Karnilfinde', 1, 4, 0, 0, 0);
+INSERT INTO `va_galaxy` VALUES (7, 'Geist', 1, 9999, 0, 0, 0);
+INSERT INTO `va_galaxy` VALUES (8, 'Poltergeist', 1, 0, 10, 10, 10020);
+INSERT INTO `va_galaxy` VALUES (9, 'Englouti', 1, 4, 1000, 1, 2);
+INSERT INTO `va_galaxy` VALUES (10, 'Sneeuwvlok', 1, 9999, 0, 0, 0);
+INSERT INTO `va_galaxy` VALUES (11, 'Tourbillon', 1, 0, 5, 100, 560);
+INSERT INTO `va_galaxy` VALUES (12, 'The Milky Way', 1, 0, 50, 2500, 36200);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_guilds`
+-- 
+
+CREATE TABLE `va_guilds` (
+  `id` int(255) NOT NULL auto_increment,
+  `name` text NOT NULL,
+  `ownerid` int(255) NOT NULL default '0',
+  `description` text NOT NULL,
+  `image` text NOT NULL,
+  `password` text NOT NULL,
+  `page` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `va_guilds`
+-- 
+
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_items`
+-- 
+
+CREATE TABLE `va_items` (
+  `id` int(15) NOT NULL default '0',
+  `rareRoll` int(255) NOT NULL default '2',
+  `name` text NOT NULL,
+  `description` text NOT NULL,
+  `image` text NOT NULL,
+  `type` int(255) NOT NULL default '0',
+  `AP` int(255) NOT NULL default '0',
+  `isbuffed` int(255) NOT NULL default '0',
+  `buffimage` text NOT NULL,
+  `buffname` text NOT NULL,
+  `battlesleft` int(255) NOT NULL default '0',
+  `str` int(255) NOT NULL default '0',
+  `def` int(255) NOT NULL default '0',
+  `maxHP` int(255) NOT NULL default '0',
+  `maxMP` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `va_items`
+-- 
+
+INSERT INTO `va_items` VALUES (1000, 2, 'A Cookie', 'A yummy cookie that heals for 5HP.', 'images/items/cookie1.png', 0, 5, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (1001, 3, 'A Cake', 'A chocolate cake that heals for 10HP.', 'images/items/cake1.png', 0, 10, 1, 'images/items/cake1.png', 'A Good Cake', 15, 3, 0, 0, 0);
+INSERT INTO `va_items` VALUES (12, 5, 'Medium Healing Potion', 'Red glass-like liquid brewed by Alchemists. Heals 20HP.', 'images/items/redPot1.png', 0, 20, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (43, 10000000, 'White Fusion Blade', 'A very effective weapon...', 'images/items/whiteFB1.png', 1, 500, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (44, 10000000, 'Golden Astro-Dragon Blade', 'Taken from the dragon of Astrona himself.', 'images/items/adsfb.png', 1, 8500, 1, 'images/items/goldFB1.png', 'Dragon''s Fury', 15, 500, 500, 0, 0);
+INSERT INTO `va_items` VALUES (1002, 3, 'Wooden Sword', 'This thing will give you splinters before it would hurt you!', 'images/items/wsword1a.png', 1, 3, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (1003, 45, 'A-23 Assault Rifle', 'The A-23 Assault Rifle is the standard gun in The Milky Way''s Grand Army, light weight and low recoil it is easy to use, but still deadly.', 'images/items/blackLG1.png', 1, 45, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (1005, 250, 'S-16 Multi-Purpose Rifle', 'This is a very heavy gun with a high recoil, used mainly by the Tourbillion Grand Army it''s effect is devestating.  It can leave a crater in a wall with a single shot, though it may be random if you aren''t trained in guns.', 'images/items/sniperLG1.png', 1, 70, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (1006, 25, 'A-11 Assault Rifle', 'This gun shoots very fast, with a slight up-ward trend it still is very deadly, this is the most used gun in the Universe, as it is light, easy to use and still powerful.', 'images/items/blackLG2.png', 1, 55, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (1004, 30, 'C-5 Compact Rifle', 'This gun is the smallest rifle in use today, it shoots very slowly but dont let its size fool you, it is very strong. While it does slightly less damage then a Rocket Launcher, it still shoots a laser 6 inches wide and is one of the most powerful weapons, though it isn''t used much because it has a tendency to miss.', 'images/items/grayLG1.png', 1, 60, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (1007, 24, 'M9 Pistol', 'A little old and outdated, but still good.', 'images/items/M9PS1.png', 1, 25, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (1008, 400, 'Tome of the Undead', 'A very old dusty book with a skull on the cover.', 'images/items/tomeUnD.png', 6, 1, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (13, 5, 'Medium Mana Potion', 'A blue potion brewed by alchemists, restores 20 MP.', 'images/items/bluePot1.png', 7, 20, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (100, 3, 'Coffee', 'Hot, and makes you stronger.', 'images/items/coffee.png', 8, 0, 1, 'images/items/coffee.png', 'Warm Coffee', 15, 5, 0, 0, 0);
+INSERT INTO `va_items` VALUES (15, 4, 'Hot Chocolate', 'Mmm... Warm and sweet.', 'images/items/hotchoc.png', 0, 15, 1, 'images/items/hotchoc.png', 'Warm and Cozy', 5, 3, 3, 3, 3);
+INSERT INTO `va_items` VALUES (16, 300, 'Flaxen Flame', 'A sacred sword only forged long ago, although some say it''s secret still resides somewhere unknown, where only skilled blacksmith can forge it.', 'images/items/flameKatana.png', 1, 100, 1, 'images/items/flameKatana.png', 'Strength of the Flame', 25, 15, 0, 0, 0);
+INSERT INTO `va_items` VALUES (17, 500, 'Kironus Blade', 'An ancient blade wielded by powerful warriors to help fight off the Flax Invasion, though it worked the blades we''re stolen and hidden away from the universe.', 'images/items/icyShockS.png', 1, 175, 1, 'images/items/icyShockS.png', 'Empowered', 25, 25, 0, 25, 25);
+INSERT INTO `va_items` VALUES (18, 45, 'Warber Feather', 'A red feather from a Warber.', 'images/items/feather.png', 7, 50, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (19, 5000, 'Chocolate Goo', 'Ew... That wasn''t suppose to happen.', 'images/items/goop.png', 0, 5, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (20, 5000, 'Energy Drink', 'A green slimey potion that eradiates heat.', 'images/items/energy.png', 0, 35, 1, 'images/items/energy.png', 'Energized', 25, 25, 0, 25, 0);
+INSERT INTO `va_items` VALUES (21, 5000, 'Chocolate Potion', 'Yum, this will be nice.', 'images/items/chocHP.png', 0, 50, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (22, 5, 'Fiery Ember', 'Ooo! That''s hot!', 'images/items/embers.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (23, 5000, 'Fiery Chocolate Goo', 'Oh no... That''s bad.', 'images/items/goop2.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (24, 5000, 'Fiery Wooden Sword', 'Hmm, I didn''t know wood could burn like that...', 'images/items/fWoodS.png', 1, 35, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (25, 5000, 'Bitter Hot Chocolate', 'Wow, that''s rather stronger then a normal one.', 'images/items/hotchoc2.png', 0, 55, 1, 'images/items/hotchoc2.png', 'Bittersweet', 35, 15, 15, 15, 0);
+INSERT INTO `va_items` VALUES (26, 75, 'Energy Core', 'The power that flows from this green rock seems to be pure energy.', 'images/items/energyC2.gif', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (27, 4, 'Clear Water', 'Just pure water in a cup, probably has many uses other then restoring mana.', 'images/items/water1.png', 7, 35, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (28, 25, 'Radioactive Fish', 'My personal opinion is not to eat it.', 'images/items/rFish.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (29, 45, 'Strength Pill', 'A blue pill in which it''s length is about the size of a dime.', 'images/items/bPill1.png', 8, 0, 1, 'images/items/bPill1.png', 'Stronger', 15, 50, 0, 0, 0);
+INSERT INTO `va_items` VALUES (30, 15, 'Doughnut', 'Fresh from the oven, watch out it''s hot!', 'images/items/doughnut1.png', 0, 25, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (31, 75, 'Fiery Whip', 'It almost makes you feel sorry for the person being whipped.', 'images/items/flamewhip.png', 1, 45, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (32, 5, 'Potato', 'Hard and bitter, but good when cooked.', 'images/items/potato.png', 0, 15, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (33, 4, 'Lavender', 'A violet flower used in alchemy.', 'images/items/lavender.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (34, 5, 'Rose', 'A fragrant red flower used in alchemy.', 'images/items/rose.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (35, 5000, 'Radioactive Goo', 'Oh, this keeps getting worse.', 'images/items/greengoo.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (36, 500, 'Chocolate Glazed Doughnut', 'Sugar, chocolate, and sprinkles.  What else do you want?', 'images/items/doughnut2.png', 0, 50, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (37, 9, 'Eggs', 'White eggs from a chicken.', 'images/items/egg.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (38, 6, 'Flower', 'A pile of soft flower used in baking.', 'images/items/flower.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (39, 7, 'Sugar', 'A sweet substance used to make food taste better.', 'images/items/sugar.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (40, 5000, 'Dough', 'A mixture used to make bread.', 'images/items/dough.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (41, 85, 'Fire Core', 'This is really hot, I dont suggest holding it.', 'images/items/fireC1.gif', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (42, 255, 'Baked Potato', 'This potato is much better!', 'images/items/bPotato.png', 0, 55, 1, 'images/items/bPotato.png', 'High Fiber', 5, 0, 25, 0, 0);
+INSERT INTO `va_items` VALUES (45, 500, 'Radioactive Potato', 'Uh, wow... I dont think eating it will remove the radioactive waste it''s producing.', 'images/items/rPotato.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (46, 35, 'Planetary Core', 'This is a rock from the center of a planet used to make core elemental stones.', 'images/items/planetCore.gif', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (47, 35, 'Chocolate Cupcake', 'A delicious chocolate cake wrapped in paper with sprinkles on the top.', 'images/items/cCC.png', 0, 35, 1, 'images/items/cCC.png', 'On a Sugar High...', 5, 35, 0, 0, 0);
+INSERT INTO `va_items` VALUES (48, 5, 'A Blood Red Pill', 'Just a pill... I wonder what it does...', 'images/items/rPill1.png', 8, 0, 1, 'images/items/rPill1.png', 'Weakened Blood', 5, 0, 0, -45, 0);
+INSERT INTO `va_items` VALUES (51, 1000000, 'Erisior''s Alkantine blade', 'Sword of Erisior the all powerful. Kills anything in one hit.', 'images/items/whiteFB1.png', 1, 999999, 1, 'images/items/energyCore.png', 'Godly Aura', 999999, 999999, 999999, 999999, 999999);
+INSERT INTO `va_items` VALUES (50, 1000, 'Full Heal Pill', 'This will heal you to 200000 HP.', 'images/items/rPill1.png', 0, 200000, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (49, 25, 'Strong Energy Drink', 'A stronger version of the Energy Drink...', 'images/items/energy2.png', 0, 55, 1, 'images/items/energy2.png', 'Very Energized', 15, 100, 25, 100, 0);
+INSERT INTO `va_items` VALUES (66, 450, 'Pie', 'A really nice Pecan Pie.', 'images/items/cake1.png', 0, 100, 1, 'images/items/cake1.png', 'Shiny', 15, 1000, 1000, 1000, 1000);
+INSERT INTO `va_items` VALUES (52, 1000, 'Blue Unbelievable', 'A potion?', 'images/items/energyCore.png', 7, 20000000, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (53, 50, 'Epic Twig of Fire', 'This is a very powerful stick... Really.', 'images/items/fTwig.png', 1, 225, 1, 'images/items/fTwig.png', 'Fire of a Stick', 15, 30, 0, 0, 0);
+INSERT INTO `va_items` VALUES (54, 55, 'Fiery Twig', 'It is on fire?  Okay...', 'images/items/fTwig.png', 1, 25, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (55, 55, 'Golden Magic Dust', 'A valuable dust pile used in making advanced magical items.', 'images/items/gMD1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (56, 99999, 'The Shiny', 'The Shiny is the Shinyest Shiny of all shiny time', 'images/items/whiteFB1.png', 1, 999999, 1, 'images/items/whiteFB1.png', '', 999999, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (57, 3, 'Toothpick', 'Ouch! I almost stepped on that!', 'images/items/toothpick.png', 1, 10, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (58, 2, 'Rubber Band', 'It stretches, wont do lots of damage though.', 'images/items/rband.png', 1, 7, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (59, 5, 'Metal Butter Knife', 'That could kill someone!', 'images/items/bKnife.png', 1, 22, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (60, 5, 'Thermal Shield', 'A energy field that protects from minor damage.', 'images/items/thermalShield2a.png', 2, 2, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (61, 5, 'Golden Metal Bar', 'A Gold Metal Bar used in Armor and Weapon crafting.', 'images/items/goldBar1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (62, 4, 'Black Metal Bar', 'Black Metal Bar used in Armor and Weapon crafting.', 'images/items/blackBar1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (63, 7, 'Blue Metal Bar', 'A Blue Metal Bar used in Armor and Weapon crafting.', 'images/items/blueBar1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (64, 20, 'Aquamental Bar', 'A special bar used in Advanced Armor and Weapon crafting.', 'images/items/cyanBar1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (65, 15, 'Acidmental Bar', 'An uncommon bar used in Advanced Armor and Weapon crafting.', 'images/items/greenBar1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (67, 25, 'Pyromental Bar', 'A very rare bar used in Extremely Advanced Armor and Weapon crafting.', 'images/items/redBar1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (68, 3, 'Iron Bar', 'An iron bar is used in basic Armor and Weapon crafting.', 'images/items/silverBar1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (69, 40, 'Icotonian Bar', 'Icotonian Bars are precious metals, frozen in ice and time they are used in Rare and Epic Armor and Weapon Crafting.', 'images/items/whiteBar1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (70, 2, 'Rusty Iron Bar', 'Rusty Iron Bars are used in Very Basic Armor and Weapon Crafting.', 'images/items/orangeBar1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (71, 5, 'Plain Magical Dust', 'Used in basic item crafting.', 'images/items/plainMD1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (72, 50, 'Fiery Magical Dust', 'Fired from ancient entombed volcanic magical ashes this dust is most commonly used in epic item crafting.', 'images/items/fMD1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (73, 10, 'Red Magical Dust', 'Used in common item crafting.', 'images/items/rMD1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (74, 15, 'Blue Magical Dust', 'Used in uncommon item crafting.', 'images/items/bMD1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (75, 17, 'Emerald Magical Dust', 'Used in advanced item crafting.', 'images/items/eMD1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (76, 25, 'Black Magical Dust', 'Used in rare and advanced item crafting.', 'images/items/blackMD1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (77, 35, 'Icy Magical Dust', 'Used in extremely rare and advanced item crafting.', 'images/items/iceMD1.png', 9, 0, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (78, 10, 'Golden Crown', 'A gold-alloy crown, provides good protection for the head.', 'images/items/crown.png', 3, 7, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (79, 6, 'Iron Helm', 'Looks like it would protect very well...', 'images/items/helm2.png', 3, 5, 0, '', '', 0, 0, 0, 0, 0);
+INSERT INTO `va_items` VALUES (80, 9999999, 'Erisior''s armor', 'Protects Erisior and only Erisior.', 'images/items/flame.png', 4, 999999, 0, '', '', 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_mailbox`
+-- 
+
+CREATE TABLE `va_mailbox` (
+  `id` int(255) NOT NULL default '0',
+  `mbS0` text NOT NULL,
+  `mbS1` text NOT NULL,
+  `mbS2` text NOT NULL,
+  `mbS3` text NOT NULL,
+  `mbS4` text NOT NULL,
+  `mbS5` text NOT NULL,
+  `mbS6` text NOT NULL,
+  `mbS7` text NOT NULL,
+  `mbS8` text NOT NULL,
+  `mbS9` text NOT NULL,
+  `mbS10` text NOT NULL,
+  `mbS11` text NOT NULL,
+  `mbS12` text NOT NULL,
+  `mbS13` text NOT NULL,
+  `mbS14` text NOT NULL,
+  `mbS15` text NOT NULL,
+  `mbS16` text NOT NULL,
+  `mbS17` text NOT NULL,
+  `mbS18` text NOT NULL,
+  `mbS19` text NOT NULL,
+  `mbS20` text NOT NULL,
+  `mbS21` text NOT NULL,
+  `mbS22` text NOT NULL,
+  `mbS23` text NOT NULL,
+  `mbS24` text NOT NULL,
+  `mbS25` text NOT NULL,
+  `mbS26` text NOT NULL,
+  `mbS27` text NOT NULL,
+  `mbS28` text NOT NULL,
+  `mbS29` text NOT NULL,
+  `mbM0` text NOT NULL,
+  `mbM1` text NOT NULL,
+  `mbM2` text NOT NULL,
+  `mbM3` text NOT NULL,
+  `mbM4` text NOT NULL,
+  `mbM5` text NOT NULL,
+  `mbM6` text NOT NULL,
+  `mbM7` text NOT NULL,
+  `mbM8` text NOT NULL,
+  `mbM9` text NOT NULL,
+  `mbM10` text NOT NULL,
+  `mbM11` text NOT NULL,
+  `mbM12` text NOT NULL,
+  `mbM13` text NOT NULL,
+  `mbM14` text NOT NULL,
+  `mbM15` text NOT NULL,
+  `mbM16` text NOT NULL,
+  `mbM17` text NOT NULL,
+  `mbM18` text NOT NULL,
+  `mbM19` text NOT NULL,
+  `mbM20` text NOT NULL,
+  `mbM21` text NOT NULL,
+  `mbM22` text NOT NULL,
+  `mbM23` text NOT NULL,
+  `mbM24` text NOT NULL,
+  `mbM25` text NOT NULL,
+  `mbM26` text NOT NULL,
+  `mbM27` text NOT NULL,
+  `mbM28` text NOT NULL,
+  `mbM29` text NOT NULL,
+  `mbT0` text NOT NULL,
+  `mbT1` text NOT NULL,
+  `mbT2` text NOT NULL,
+  `mbT3` text NOT NULL,
+  `mbT4` text NOT NULL,
+  `mbT5` text NOT NULL,
+  `mbT6` text NOT NULL,
+  `mbT7` text NOT NULL,
+  `mbT8` text NOT NULL,
+  `mbT9` text NOT NULL,
+  `mbT10` text NOT NULL,
+  `mbT11` text NOT NULL,
+  `mbT12` text NOT NULL,
+  `mbT13` text NOT NULL,
+  `mbT14` text NOT NULL,
+  `mbT15` text NOT NULL,
+  `mbT16` text NOT NULL,
+  `mbT17` text NOT NULL,
+  `mbT18` text NOT NULL,
+  `mbT19` text NOT NULL,
+  `mbT20` text NOT NULL,
+  `mbT21` text NOT NULL,
+  `mbT22` text NOT NULL,
+  `mbT23` text NOT NULL,
+  `mbT24` text NOT NULL,
+  `mbT25` text NOT NULL,
+  `mbT26` text NOT NULL,
+  `mbT27` text NOT NULL,
+  `mbT28` text NOT NULL,
+  `mbT29` text NOT NULL,
+  `mbF0` text NOT NULL,
+  `mbF1` text NOT NULL,
+  `mbF2` text NOT NULL,
+  `mbF3` text NOT NULL,
+  `mbF4` text NOT NULL,
+  `mbF5` text NOT NULL,
+  `mbF6` text NOT NULL,
+  `mbF7` text NOT NULL,
+  `mbF8` text NOT NULL,
+  `mbF9` text NOT NULL,
+  `mbF10` text NOT NULL,
+  `mbF11` text NOT NULL,
+  `mbF12` text NOT NULL,
+  `mbF13` text NOT NULL,
+  `mbF14` text NOT NULL,
+  `mbF15` text NOT NULL,
+  `mbF16` text NOT NULL,
+  `mbF17` text NOT NULL,
+  `mbF18` text NOT NULL,
+  `mbF19` text NOT NULL,
+  `mbF20` text NOT NULL,
+  `mbF21` text NOT NULL,
+  `mbF22` text NOT NULL,
+  `mbF23` text NOT NULL,
+  `mbF24` text NOT NULL,
+  `mbF25` text NOT NULL,
+  `mbF26` text NOT NULL,
+  `mbF27` text NOT NULL,
+  `mbF28` text NOT NULL,
+  `mbF29` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `va_mailbox`
+-- 
+
+INSERT INTO `va_mailbox` VALUES (15, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `va_mailbox` VALUES (16, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `va_mailbox` VALUES (17, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `va_mailbox` VALUES (18, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_news`
+-- 
+
+CREATE TABLE `va_news` (
+  `id` int(255) NOT NULL auto_increment,
+  `subject` text NOT NULL,
+  `text` text NOT NULL,
+  `user` text NOT NULL,
+  `date` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+-- 
+-- Dumping data for table `va_news`
+-- 
+
+INSERT INTO `va_news` VALUES (1, 'Voided Alliance Source: Revolution', 'Auburnflame Productions Releases Voided Alliance Source: Revolution.', 'admin', '3.27.08');
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_recipe`
+-- 
+
+CREATE TABLE `va_recipe` (
+  `id` int(255) NOT NULL auto_increment,
+  `creationNum` int(255) NOT NULL default '0',
+  `creationType` int(255) NOT NULL default '0',
+  `createdID` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+
+-- 
+-- Dumping data for table `va_recipe`
+-- 
+
+INSERT INTO `va_recipe` VALUES (1, 1523, 3, 19);
+INSERT INTO `va_recipe` VALUES (2, 469, 1, 20);
+INSERT INTO `va_recipe` VALUES (3, 46, 1, 21);
+INSERT INTO `va_recipe` VALUES (4, 1534, 3, 19);
+INSERT INTO `va_recipe` VALUES (5, 1533, 3, 19);
+INSERT INTO `va_recipe` VALUES (6, 55, 3, 19);
+INSERT INTO `va_recipe` VALUES (7, 4503, 3, 19);
+INSERT INTO `va_recipe` VALUES (8, 1567, 3, 23);
+INSERT INTO `va_recipe` VALUES (9, 61, 3, 23);
+INSERT INTO `va_recipe` VALUES (10, 1537, 2, 24);
+INSERT INTO `va_recipe` VALUES (11, 172, 1, 25);
+INSERT INTO `va_recipe` VALUES (12, 89, 1, 13);
+INSERT INTO `va_recipe` VALUES (13, 91, 1, 12);
+INSERT INTO `va_recipe` VALUES (14, 75, 3, 35);
+INSERT INTO `va_recipe` VALUES (15, 79, 3, 36);
+INSERT INTO `va_recipe` VALUES (16, 152, 4, 40);
+INSERT INTO `va_recipe` VALUES (17, 118, 3, 30);
+INSERT INTO `va_recipe` VALUES (18, 48, 3, 42);
+INSERT INTO `va_recipe` VALUES (19, 94, 3, 47);
+INSERT INTO `va_recipe` VALUES (20, 121, 1, 26);
+INSERT INTO `va_recipe` VALUES (21, 102, 1, 41);
+INSERT INTO `va_recipe` VALUES (22, 69, 1, 49);
+INSERT INTO `va_recipe` VALUES (23, 163, 2, 53);
+INSERT INTO `va_recipe` VALUES (24, 416, 2, 60);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_shops`
+-- 
+
+CREATE TABLE `va_shops` (
+  `id` int(255) NOT NULL default '0',
+  `name` text NOT NULL,
+  `description` text NOT NULL,
+  `ownerid` int(255) NOT NULL default '0',
+  `credits` int(255) NOT NULL default '0',
+  `inv0` int(255) NOT NULL default '0',
+  `inv1` int(255) NOT NULL default '0',
+  `inv2` int(255) NOT NULL default '0',
+  `inv3` int(255) NOT NULL default '0',
+  `inv4` int(255) NOT NULL default '0',
+  `inv5` int(255) NOT NULL default '0',
+  `inv6` int(255) NOT NULL default '0',
+  `inv7` int(255) NOT NULL default '0',
+  `inv8` int(255) NOT NULL default '0',
+  `inv9` int(255) NOT NULL default '0',
+  `inv10` int(255) NOT NULL default '0',
+  `inv11` int(255) NOT NULL default '0',
+  `inv12` int(255) NOT NULL default '0',
+  `inv13` int(255) NOT NULL default '0',
+  `inv14` int(255) NOT NULL default '0',
+  `inv15` int(255) NOT NULL default '0',
+  `inv16` int(255) NOT NULL default '0',
+  `inv17` int(255) NOT NULL default '0',
+  `inv18` int(255) NOT NULL default '0',
+  `inv19` int(255) NOT NULL default '0',
+  `inv20` int(255) NOT NULL default '0',
+  `inv21` int(255) NOT NULL default '0',
+  `inv22` int(255) NOT NULL default '0',
+  `inv23` int(255) NOT NULL default '0',
+  `inv24` int(255) NOT NULL default '0',
+  `inv25` int(255) NOT NULL default '0',
+  `inv26` int(255) NOT NULL default '0',
+  `inv27` int(255) NOT NULL default '0',
+  `inv28` int(255) NOT NULL default '0',
+  `inv29` int(255) NOT NULL default '0',
+  `price0` int(255) NOT NULL default '0',
+  `price1` int(255) NOT NULL default '0',
+  `price2` int(255) NOT NULL default '0',
+  `price3` int(255) NOT NULL default '0',
+  `price4` int(255) NOT NULL default '0',
+  `price5` int(255) NOT NULL default '0',
+  `price6` int(255) NOT NULL default '0',
+  `price7` int(255) NOT NULL default '0',
+  `price8` int(255) NOT NULL default '0',
+  `price9` int(255) NOT NULL default '0',
+  `price10` int(255) NOT NULL default '0',
+  `price11` int(255) NOT NULL default '0',
+  `price12` int(255) NOT NULL default '0',
+  `price13` int(255) NOT NULL default '0',
+  `price14` int(255) NOT NULL default '0',
+  `price15` int(255) NOT NULL default '0',
+  `price16` int(255) NOT NULL default '0',
+  `price17` int(255) NOT NULL default '0',
+  `price18` int(255) NOT NULL default '0',
+  `price19` int(255) NOT NULL default '0',
+  `price20` int(255) NOT NULL default '0',
+  `price21` int(255) NOT NULL default '0',
+  `price22` int(255) NOT NULL default '0',
+  `price23` int(255) NOT NULL default '0',
+  `price24` int(255) NOT NULL default '0',
+  `price25` int(255) NOT NULL default '0',
+  `price26` int(255) NOT NULL default '0',
+  `price27` int(255) NOT NULL default '0',
+  `price28` int(255) NOT NULL default '0',
+  `price29` int(255) NOT NULL default '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- 
+-- Dumping data for table `va_shops`
+-- 
+
+INSERT INTO `va_shops` VALUES (1, 'dass Shop', 'Welcome!', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `va_shops` VALUES (2, 'A Shop', '[b]Welcome! This is a shop![/b]', 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_ticket`
+-- 
+
+CREATE TABLE `va_ticket` (
+  `id` int(255) NOT NULL auto_increment,
+  `sender` text NOT NULL,
+  `text` text NOT NULL,
+  `date` text NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- 
+-- Dumping data for table `va_ticket`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_users`
+-- 
+
+CREATE TABLE `va_users` (
+  `id` int(15) NOT NULL auto_increment,
+  `user` text NOT NULL,
+  `password` text NOT NULL,
+  `email` text NOT NULL,
+  `joindate` text NOT NULL,
+  `access` int(3) NOT NULL default '0',
+  `galaxy` int(3) NOT NULL default '1',
+  `level` int(255) NOT NULL default '1',
+  `class` int(3) NOT NULL default '0',
+  `lastref` int(10) NOT NULL default '0',
+  `currency` int(255) NOT NULL default '0',
+  `inv0` int(20) NOT NULL default '0',
+  `inv1` int(20) NOT NULL default '0',
+  `inv2` int(20) NOT NULL default '0',
+  `inv3` int(20) NOT NULL default '0',
+  `inv4` int(20) NOT NULL default '0',
+  `inv5` int(20) NOT NULL default '0',
+  `inv6` int(20) NOT NULL default '0',
+  `inv7` int(20) NOT NULL default '0',
+  `inv8` int(20) NOT NULL default '0',
+  `inv9` int(20) NOT NULL default '0',
+  `inv10` int(20) NOT NULL default '0',
+  `inv11` int(20) NOT NULL default '0',
+  `inv12` int(20) NOT NULL default '0',
+  `inv13` int(20) NOT NULL default '0',
+  `inv14` int(20) NOT NULL default '0',
+  `inv15` int(20) NOT NULL default '0',
+  `inv16` int(20) NOT NULL default '0',
+  `inv17` int(20) NOT NULL default '0',
+  `inv18` int(20) NOT NULL default '0',
+  `inv19` int(20) NOT NULL default '0',
+  `inv20` int(255) NOT NULL default '0',
+  `inv21` int(255) NOT NULL default '0',
+  `inv22` int(255) NOT NULL default '0',
+  `inv23` int(255) NOT NULL default '0',
+  `inv24` int(255) NOT NULL default '0',
+  `inv25` int(255) NOT NULL default '0',
+  `inv26` int(255) NOT NULL default '0',
+  `inv27` int(255) NOT NULL default '0',
+  `inv28` int(255) NOT NULL default '0',
+  `inv29` int(255) NOT NULL default '0',
+  `guild` int(255) NOT NULL default '0',
+  `shopid` int(255) NOT NULL default '0',
+  `mailbox` int(255) NOT NULL default '0',
+  `maxHP` int(255) NOT NULL default '10',
+  `currentHP` int(255) NOT NULL default '10',
+  `maxMP` int(255) NOT NULL default '10',
+  `currentMP` int(255) NOT NULL default '10',
+  `currentXP` int(255) NOT NULL default '0',
+  `luck` int(255) NOT NULL default '0',
+  `str` int(255) NOT NULL default '3',
+  `def` int(255) NOT NULL default '3',
+  `AC` int(255) NOT NULL default '0',
+  `eqWeapon` int(255) NOT NULL default '0',
+  `eqShield` int(255) NOT NULL default '0',
+  `eqHelmet` int(255) NOT NULL default '0',
+  `eqArmor` int(255) NOT NULL default '0',
+  `eqGloves` int(255) NOT NULL default '0',
+  `eqBoots` int(255) NOT NULL default '0',
+  `pvp` int(255) NOT NULL default '0',
+  `pk` int(255) NOT NULL default '0',
+  `points` int(255) NOT NULL default '0',
+  `Cgalaxy` int(255) NOT NULL default '0',
+  `spell0` text NOT NULL,
+  `spell1` text NOT NULL,
+  `spell2` text NOT NULL,
+  `spell3` text NOT NULL,
+  `spell4` text NOT NULL,
+  `spell5` text NOT NULL,
+  `spell6` text NOT NULL,
+  `spell7` text NOT NULL,
+  `spell8` text NOT NULL,
+  `spell9` text NOT NULL,
+  `spell10` text NOT NULL,
+  `spell11` text NOT NULL,
+  `spell12` text NOT NULL,
+  `spell13` text NOT NULL,
+  `spell14` text NOT NULL,
+  `spell15` text NOT NULL,
+  `spell16` text NOT NULL,
+  `spell17` text NOT NULL,
+  `spell18` text NOT NULL,
+  `spell19` text NOT NULL,
+  `spell20` text NOT NULL,
+  `spell21` text NOT NULL,
+  `spell22` text NOT NULL,
+  `spell23` text NOT NULL,
+  `spell24` text NOT NULL,
+  `spell25` text NOT NULL,
+  `spell26` text NOT NULL,
+  `spell27` text NOT NULL,
+  `spell28` text NOT NULL,
+  `spell29` text NOT NULL,
+  `usertype` int(255) NOT NULL default '0',
+  `BattlesWon` int(255) NOT NULL default '0',
+  `BattlesLost` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+-- 
+-- Dumping data for table `va_users`
+-- 
+
+-- --------------------------------------------------------
+
+-- 
+-- Table structure for table `va_worktable`
+-- 
+
+CREATE TABLE `va_worktable` (
+  `id` int(255) NOT NULL auto_increment,
+  `playerid` int(255) NOT NULL default '0',
+  `itemid` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+-- 
+-- Dumping data for table `va_worktable`
+-- 
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `va_session`
+--
+
+CREATE TABLE `va_session` (
+  `id` int(255) NOT NULL auto_increment,
+  `session` text NOT NULL,
+  `user` text NOT NULL,
+  `time` int(255) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `va_session`
+--

@@ -28,6 +28,8 @@ $foundSes = true;
 echo "<td width=15% id='top'>";
 echo "<center>";
 
+$gOwns = false;
+
 if (!empty($_COOKIE['va_users'])) {
 
 $query = "SELECT * FROM va_users";

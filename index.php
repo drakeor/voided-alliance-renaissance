@@ -181,7 +181,12 @@ wti($pagenum);
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
       </div>
     </div>-->
-
+	<div class="container">
+		<center>
+			<img src="images/mb1e.png" />
+		</center>
+	</div>
+	
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
@@ -207,7 +212,8 @@ if (empty($_COOKIE['va_users']) == false) {
     $query  = "SELECT * FROM va_mailbox";
     $result = mysql_query($query);
     $num1   = mysql_numrows($result);
-    
+    $unread = false;
+	
     $badpass = md5("abcd");
     
     $query2  = "SELECT * FROM va_users";
@@ -1321,7 +1327,11 @@ Buff Max MP Gained: <input type="text" name="buffMP" /><br />
             
             $banTime = date('ymdHi');
             $banTime = floor($banTime);
-            
+            $banLen = 0;
+			$mNum = 0;
+			$banID = 0;
+			$isbanned = false;
+			
             for ($i = 0; $i < $num1; $i++) {
                 if (mysql_result($result, $i, "playerid") == $Uid) {
                     //User is banned.
@@ -6387,6 +6397,8 @@ Description<hr> <textarea cols="30" rows="15" name="desc">
                                 }
                             }
                             
+							$hasmail = false;
+							
                             for ($i2 = 0; $i2 < $num1; $i2++) {
                                 if (mysql_result($result, $i2, "id") == $MBid) {
                                     
@@ -7364,10 +7376,10 @@ cpl_wra();
         <div class="col-md-3">
           <h2>Navigation</h2>
           <p>
-		  <?php writeleft(); ?>
+		  <?php writeright(); ?>
 		  </p>
 		  <p>
-		  <?php writebottom(); ?>
+		  <?php writeleft(); mysql_close(); ?> 
 		  </p>
         </div>
       </div>
